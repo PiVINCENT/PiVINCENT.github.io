@@ -545,9 +545,9 @@ body {
 
   <!-- BARRE DE RECHERCHE -->
   <div id="barre-recherche">
-    <label>🔍 Rechercher dans l'encyclopédie :</label>
-    <input type="text" placeholder="Ex : photosynthèse, mammifère, cellule...">
-    <div class="btn-chercher" onclick="lancerRecherche()">Chercher</div>
+    <label>🔍 Search in this website:</label>
+    <input type="text" placeholder="Ex : working paper, publication, orcid...">
+    <div class="btn-chercher" onclick="lancerRecherche()">Search</div>
   </div>
 
   <!-- CORPS -->
@@ -582,10 +582,10 @@ body {
 
       <!-- EN-TETE -->
       <div id="entete-encyclo">
-        <div class="logo-globe">🐟</div>
+        <div class="logo-globe"><img src="moi.jpg" alt="maphoto"></div>
         <div class="logo-texte">
           <h1>Pierre VINCENT</h1>
-          <div class="sous-titre">PhD student in Economics - Université Jean Monnet</div>
+          <div class="sous-titre">PhD student in Economics - Université Jean Monnet - GATE Lyon Saint-Étienne UMR 5824</div>
           <div class="sous-titre" style="margin-top:3px; font-size:11px;">© 2026 Edité par l'Association Française du Poisson Pierre — Version 3.6.9</div>
         </div>
       </div>
@@ -737,7 +737,7 @@ function lancerRecherche() {
   if (terme.trim() === '') {
     alert('Veuillez saisir un terme de recherche.');
   } else {
-    alert('Erreur : Impossible de charger le module de recherche.\n\nFichier BIORECHERCHE.DLL introuvable.\n\nVeuillez réinstaller BioEncyclo 2001.');
+    alert('Error : Impossible to search. Sorry Ive done this website with claude\n\nThis is just for aesthethic... \n\nFile RECHERCHE.DLL doesnot exist.\n\nPlease Install Internet Explorer 6');
   }
 }   
 </script>
