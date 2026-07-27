@@ -1,6 +1,754 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<meta charset="UTF-8">
+<title>Le Poisson Pierre</title>
+<style>
+
+/* =====================
+   BASE SYSTEME
+   ===================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #000080;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,128,0.3) 2px,
+      rgba(0,0,128,0.3) 4px
+    );
+  font-family: "Times New Roman", Times, serif;
+  color: #000000;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+/* =====================
+   FENETRE PRINCIPALE
+   ===================== */
+#fenetre {
+  width: 80%;
+  margin: 0 auto;
+  background: #d4d0c8;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* BARRE DE TITRE */
+#titre-barre {
+  background: linear-gradient(90deg, #000080, #1084d0);
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+#titre-barre .titre-texte {
+  color: white;
+  font-family: "Arial", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#titre-barre .titre-texte .icone-app {
+  font-size: 16px;
+}
+
+#titre-barre .boutons-fenetre {
+  display: flex;
+  gap: 3px;
+}
+
+#titre-barre .boutons-fenetre span {
+  display: inline-block;
+  width: 16px;
+  height: 14px;
+  background: #d4d0c8;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 11px;
+  cursor: pointer;
+  color: #000;
+}
+
+/* BARRE DE MENU */
+#menu-barre {
+  background: #d4d0c8;
+  border-bottom: 1px solid #808080;
+  padding: 2px 8px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  display: flex;
+  gap: 2px;
+}
+
+#menu-barre span {
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+#menu-barre span:hover {
+  background: #000080;
+  color: white;
+}
+
+#menu-barre span u { text-decoration: underline; }
+
+/* BARRE D'OUTILS */
+#barre-outils {
+  background: #d4d0c8;
+  border-bottom: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+
+.btn-outil {
+  background: #d4d0c8;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  min-width: 44px;
+}
+
+.btn-outil:active {
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.btn-outil .icone { font-size: 16px; }
+.btn-outil .label { font-size: 9px; }
+
+.separateur-outil {
+  width: 1px;
+  height: 30px;
+  background: #808080;
+  border-right: 1px solid #fff;
+  margin: 0 4px;
+}
+
+/* BARRE RECHERCHE */
+#barre-recherche {
+  background: #d4d0c8;
+  border-bottom: 1px solid #808080;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+#barre-recherche label { font-weight: bold; font-size: 11px; }
+
+#barre-recherche input {
+  flex: 1;
+  background: white;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding: 2px 6px;
+  font-family: "Times New Roman", serif;
+  font-size: 13px;
+  outline: none;
+}
+
+#barre-recherche .btn-chercher {
+  background: #d4d0c8;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 2px 12px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* CORPS PRINCIPAL */
+#corps {
+  display: flex;
+  height: calc(100% - 130px);
+}
+
+/* PANNEAU GAUCHE */
+#panneau-gauche {
+  width: 200px;
+  background: #d4d0c8;
+  border-right: 2px solid;
+  border-color: #808080 #ffffff #808080 #808080;
+  padding: 8px 6px;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+#panneau-gauche h3 {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background: #000080;
+  color: white;
+  padding: 3px 6px;
+  margin-bottom: 6px;
+}
+
+.arbre-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  padding: 2px 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.arbre-item:hover { background: #000080; color: white; }
+
+.arbre-item .dossier { font-size: 14px; }
+
+.arbre-sous {
+  padding-left: 18px;
+}
+
+.arbre-sous .arbre-item {
+  font-size: 11px;
+  color: #000080;
+}
+
+.arbre-sous .arbre-item:hover { color: white; }
+
+/* PANNEAU PRINCIPAL */
+#panneau-principal {
+  flex: 1;
+  background: white;
+  overflow-y: auto;
+  padding: 0;
+}
+
+/* EN-TETE ENCYCLOPEDIE */
+#entete-encyclo {
+  background: linear-gradient(180deg, #1a4a8a 0%, #2060a8 60%, #c8d8f0 100%);
+  padding: 16px 20px 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 3px solid #000080;
+}
+
+#entete-encyclo .logo-texte {
+  flex: 1;
+}
+
+#entete-encyclo h1 {
+  font-family: "Times New Roman", serif;
+  font-size: 28px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000040;
+  letter-spacing: 1px;
+}
+
+#entete-encyclo .sous-titre {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #b8d4f0;
+  margin-top: 2px;
+  font-style: italic;
+}
+
+#entete-encyclo .logo-globe {
+  font-size: 56px;
+  filter: drop-shadow(2px 2px 3px #000040);
+}
+
+/* CORPS ENCYCLOPEDIE */
+#corps-encyclo {
+  padding: 16px 20px;
+}
+
+/* MESSAGE DE BIENVENUE */
+#bienvenue {
+  background: #e8f0f8;
+  border: 2px solid #000080;
+  border-left: 6px solid #000080;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+#bienvenue strong {
+  color: #000080;
+  font-size: 13px;
+}
+
+/* GRILLE DE RUBRIQUES */
+#rubriques-titre {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000080;
+  border-bottom: 2px solid #000080;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#grille-rubriques {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.carte-rubrique {
+  background: #d4d0c8;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  display: block;
+  transition: none;
+}
+
+.carte-rubrique:hover {
+  background: #000080;
+  color: white;
+  border-color: #ffffff #000040 #000040 #ffffff;
+}
+
+.carte-rubrique:hover .rubrique-titre { color: #ffff88; }
+.carte-rubrique:hover .rubrique-desc  { color: #c8d8ff; }
+
+.carte-rubrique:active {
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.rubrique-icone {
+  font-size: 28px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.rubrique-titre {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000080;
+  margin-bottom: 4px;
+}
+
+.rubrique-desc {
+  font-family: "Times New Roman", serif;
+  font-size: 11px;
+  color: #444;
+  line-height: 1.4;
+}
+
+.rubrique-nb {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  color: #808080;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* SECTION ARTICLE DU JOUR */
+#article-jour {
+  background: #f8f4e8;
+  border: 1px solid #c0a050;
+  border-top: 4px solid #c0a050;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+
+#article-jour h3 {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #806000;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#article-jour .article-contenu {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+#article-jour .article-img {
+  font-size: 48px;
+  flex-shrink: 0;
+}
+
+#article-jour p {
+  font-family: "Times New Roman", serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #333;
+}
+
+#article-jour .lire-suite {
+  color: #000080;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* STATS ENCYCLOPEDIE */
+#stats {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.stat-box {
+  flex: 1;
+  background: #d4d0c8;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding: 8px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.stat-box .stat-nb {
+  font-size: 22px;
+  font-weight: bold;
+  color: #000080;
+  display: block;
+}
+
+.stat-box .stat-label {
+  font-size: 10px;
+  color: #444;
+}
+
+/* BARRE DE STATUT */
+#barre-statut {
+  background: #d4d0c8;
+  border-top: 2px solid;
+  border-color: #808080 #d4d0c8 #d4d0c8 #808080;
+  padding: 2px 8px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: #000;
+}
+
+#barre-statut .statut-gauche {
+  display: flex;
+  gap: 12px;
+}
+
+.statut-panel {
+  border: 1px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding: 1px 8px;
+}
+</style>
+</head>
+<body>
+
+<div id="fenetre">
+
+  <!-- BARRE DE TITRE -->
+  <div id="titre-barre">
+    <div class="titre-texte">
+      <span class="icone-app">🔬</span>
+      BioEncyclo 2001 — Encyclopédie Multimédia du Vivant
+    </div>
+    <div class="boutons-fenetre">
+      <span title="Réduire">_</span>
+      <span title="Agrandir">□</span>
+      <span title="Fermer" style="font-weight:900;">✕</span>
+    </div>
+  </div>
+
+  <!-- BARRE DE MENU -->
+  <div id="menu-barre">
+    <span><u>F</u>ichier</span>
+    <span><u>E</u>dition</span>
+    <span><u>A</u>ffichage</span>
+    <span><u>R</u>echerche</span>
+    <span><u>S</u>ignets</span>
+    <span>Im<u>p</u>rimer</span>
+    <span>Ai<u>d</u>e</span>
+  </div>
+
+  <!-- BARRE D'OUTILS -->
+  <div id="barre-outils">
+    <div class="btn-outil">
+      <span class="icone">◀</span>
+      <span class="label">Préc.</span>
+    </div>
+    <div class="btn-outil">
+      <span class="icone">▶</span>
+      <span class="label">Suiv.</span>
+    </div>
+    <div class="separateur-outil"></div>
+    <div class="btn-outil">
+      <span class="icone">🏠</span>
+      <span class="label">Accueil</span>
+    </div>
+    <div class="btn-outil">
+      <span class="icone">📑</span>
+      <span class="label">Index</span>
+    </div>
+    <div class="btn-outil">
+      <span class="icone">🔖</span>
+      <span class="label">Signets</span>
+    </div>
+    <div class="separateur-outil"></div>
+    <div class="btn-outil">
+      <span class="icone">🖨️</span>
+      <span class="label">Imprimer</span>
+    </div>
+    <div class="btn-outil">
+      <span class="icone">📋</span>
+      <span class="label">Copier</span>
+    </div>
+    <div class="separateur-outil"></div>
+    <div class="btn-outil">
+      <span class="icone">❓</span>
+      <span class="label">Aide</span>
+    </div>
+  </div>
+
+  <!-- BARRE DE RECHERCHE -->
+  <div id="barre-recherche">
+    <label>🔍 Rechercher dans l'encyclopédie :</label>
+    <input type="text" placeholder="Ex : photosynthèse, mammifère, cellule...">
+    <div class="btn-chercher" onclick="lancerRecherche()">Chercher</div>
+  </div>
+
+  <!-- CORPS -->
+  <div id="corps">
+
+    <!-- PANNEAU GAUCHE - ARBORESCENCE -->
+    <div id="panneau-gauche">
+      <h3>📂 RUBRIQUES</h3>
+
+      <div class="arbre-item"><span class="dossier">📁</span> Biologie</div>
+      <div class="arbre-sous">
+        <div class="arbre-item"><span>📄</span> <a href="adn.html" style="color:inherit;text-decoration:none;">ADN</a></div>
+        <div class="arbre-item"><span>📄</span> <a href="anatomie.html" style="color:inherit;text-decoration:none;">Anatomie</a></div>
+        <div class="arbre-item"><span>📄</span> <a href="repartition.html" style="color:inherit;text-decoration:none;">Répartition</a></div>
+        <div class="arbre-item"><span>📄</span> <a href="comportement.html" style="color:inherit;text-decoration:none;">Comportement</a></div>
+        <div class="arbre-item"><span>📄</span> <a href="baise.html" style="color:inherit;text-decoration:none;">Reproduction</a></div>
+        <div class="arbre-item"><span>📄</span> <a href="danger.html" style="color:inherit;text-decoration:none;">Dangerosité</a></div>
+        <div class="arbre-item"><span>📄</span> <a href="evolution.html" style="color:inherit;text-decoration:none;">Evolution</a></div>
+      </div>
+
+      <div class="arbre-item"><span class="dossier">📁</span> Culture</div>
+      <div class="arbre-sous">
+        <div class="arbre-item"><span>📄</span> <a href="animaux.html" style="color:inherit;text-decoration:none;">Gastronomie</a></div>
+        <div class="arbre-item"><span>📄</span> <a href="plantes.html" style="color:inherit;text-decoration:none;">Toilettes</a></div>
+        <div class="arbre-item"><span>📄</span> <a href="calibene.html" style="color:inherit;text-decoration:none;">Calibène</a></div>
+        <div class="arbre-item"><span>📄</span> <a href="chambre.html" style="color:inherit;text-decoration:none;">En Chambre</a></div>
+      </div>
+      <div class="arbre-item"><span class="dossier">📁</span> Galerie multimédia</div>
+      <div class="arbre-item"><span class="dossier">📁</span> Glossaire</div>
+      <div class="arbre-item"><span class="dossier">📁</span> Bibliographie</div>
+    </div>
+
+    <!-- PANNEAU PRINCIPAL -->
+    <div id="panneau-principal">
+
+      <!-- EN-TETE -->
+      <div id="entete-encyclo">
+        <div class="logo-globe">🐟</div>
+        <div class="logo-texte">
+          <h1>L'Encyclopédie du Poisson Pierre</h1>
+          <div class="sous-titre">L'Encyclopédie du Poisson Pierre — Édition Complète &amp; Révisée</div>
+          <div class="sous-titre" style="margin-top:3px; font-size:11px;">© 2026 Edité par l'Association Française du Poisson Pierre — Version 3.6.9</div>
+        </div>
+      </div>
+
+      <div id="corps-encyclo">
+
+        <!-- BIENVENUE -->
+        <div id="bienvenue">
+          <strong>Bienvenue sur l'Encyclopédie du Poisson Pierre.</strong><br>
+          Cette encyclopédie contient <strong>4 271 articles</strong> rédigés par des spécialistes du Poisson Pierre, illustrés de <strong>1 832 photographies</strong>, <strong>340 schémas interactifs</strong> et <strong>47 animations</strong>. Utilisez le panneau de gauche ou les rubriques ci-dessous pour naviguer. La fonction de recherche plein texte est disponible dans la barre supérieure.
+        </div>
+
+        <!-- STATS -->
+        <div id="stats">
+          <div class="stat-box">
+            <span class="stat-nb">4 271</span>
+            <span class="stat-label">Articles</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-nb">1 832</span>
+            <span class="stat-label">Photos</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-nb">340</span>
+            <span class="stat-label">Schémas</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-nb">47</span>
+            <span class="stat-label">Animations</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-nb">12</span>
+            <span class="stat-label">Rubriques</span>
+          </div>
+        </div>
+
+        <!-- RUBRIQUES -->
+        <div id="rubriques-titre">
+          📚 Meilleurs articles
+        </div>
+
+        <div id="grille-rubriques">
+
+          <a href="cellule.html" class="carte-rubrique">
+            <span class="rubrique-icone">🔬</span>
+            <div class="rubrique-titre">Séquençage de l'ADN du Poisson Pierre</div>
+            <div class="rubrique-desc">Que nous apprennent les gènes du Poisson Pierre ?</div>
+            <div class="rubrique-nb">Par Jacques Hulé </div>
+          </a>
+
+          <a href="animaux.html" class="carte-rubrique">
+            <span class="rubrique-icone">🐟</span>
+            <div class="rubrique-titre">Evolution du Poisson Pierre</div>
+            <div class="rubrique-desc">Décrouvrez l'histoire évolutive du Poisson Pierre.</div>
+            <div class="rubrique-nb">Par Yvette Caspienne</div>
+          </a>
+
+          <a href="plantes.html" class="carte-rubrique">
+            <span class="rubrique-icone">☠️</span>
+            <div class="rubrique-titre">Les Dangers du Poisson Pierre</div>
+            <div class="rubrique-desc">Soyez mefiants ! Le Poisson Pierre est très dangereux.</div>
+            <div class="rubrique-nb">Par Isidor Cédéreume</div>
+          </a>
+
+          <a href="ecosystemes.html" class="carte-rubrique">
+            <span class="rubrique-icone">🌍</span>
+            <div class="rubrique-titre">Répartition du Poisson Pierre</div>
+            <div class="rubrique-desc">Y-a-t-il un risque de croiser le Poisson Pierre dans votre bain ?</div>
+            <div class="rubrique-nb">Par Jacques Hulé</div>
+          </a>
+
+          <a href="corps-humain.html" class="carte-rubrique">
+            <span class="rubrique-icone">🍱</span>
+            <div class="rubrique-titre">Déguster le Poisson Pierre</div>
+            <div class="rubrique-desc">Comment cuisiner et se régaler avec le poisson ? La réponse dans cet article.</div>
+            <div class="rubrique-nb">Par Ricardo Douze.</div>
+          </a>
+
+          <a href="evolution.html" class="carte-rubrique">
+            <span class="rubrique-icone">🌿</span>
+            <div class="rubrique-titre">Comportement</div>
+            <div class="rubrique-desc">Comment se comporte le Poisson Pierre au quotidien ?</div>
+            <div class="rubrique-nb">Par Jacques Hulé.</div>
+          </a>
+
+          <a href="microbiologie.html" class="carte-rubrique">
+            <span class="rubrique-icone">🍆</span>
+            <div class="rubrique-titre">Reproduction</div>
+            <div class="rubrique-desc">La reporduction occupe une grande partie de la vie du Poisson Pierre.</div>
+            <div class="rubrique-nb">Par Cassandre Draline.</div>
+          </a>
+
+          <a href="ecologie.html" class="carte-rubrique">
+            <span class="rubrique-icone">🗳️</span>
+            <div class="rubrique-titre">Politique</div>
+            <div class="rubrique-desc">Le Poisson Pierre n'est pas neutre et soutient le prolétariat dans sa lute.</div>
+            <div class="rubrique-nb">Par Luigi Pasinetti et Michal Kalecki.</div>
+          </a>
+
+          <a href="galerie.html" class="carte-rubrique">
+            <span class="rubrique-icone">🖼️</span>
+            <div class="rubrique-titre">Dans la culture</div>
+            <div class="rubrique-desc">Où et comment le Poisson Pierre a fait sa place dans les médias dominants ?</div>
+            <div class="rubrique-nb">Par Karmen Guitare.</div>
+          </a>
+
+        </div>
+
+        <!-- ARTICLE DU JOUR -->
+        <div id="article-jour">
+          <h3>⭐ Article mis en avant</h3>
+          <div class="article-contenu">
+            <div class="article-img">🧬</div>
+            <div>
+              <p><strong>La double hélice de l'ADN</strong> — Décrite pour la première fois en 1953 par Watson et Crick, la structure en double hélice de l'acide désoxyribonucléique constitue le support moléculaire de l'information génétique chez la quasi-totalité des organismes vivants. Chaque brin est composé de nucléotides associant un sucre, un phosphate et une base azotée...</p>
+              <br>
+              <span class="lire-suite">▶ Lire l'article complet (adn.html)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- BARRE DE STATUT -->
+  <div id="barre-statut">
+    <div class="statut-gauche">
+      <span class="statut-panel">Prêt</span>
+      <span class="statut-panel">Page d'accueil — BioEncyclo 2001</span>
+    </div>
+    <div class="statut-panel" id="horloge">--:--:--</div>
+  </div>
+</div>
+
+<script>
+function majHorloge() {
+  var d = new Date();
+  var h = String(d.getHours()).padStart(2,'0');
+  var m = String(d.getMinutes()).padStart(2,'0');
+  var s = String(d.getSeconds()).padStart(2,'0');
+  document.getElementById('horloge').textContent = h + ':' + m + ':' + s;
+}
+majHorloge();
+setInterval(majHorloge, 1000);
+
+function lancerRecherche() {
+  var terme = document.querySelector('#barre-recherche input').value;
+  if (terme.trim() === '') {
+    alert('Veuillez saisir un terme de recherche.');
+  } else {
+    alert('Erreur : Impossible de charger le module de recherche.\n\nFichier BIORECHERCHE.DLL introuvable.\n\nVeuillez réinstaller BioEncyclo 2001.');
+  }
+}   
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
   <meta charset="UTF-8">
   <title>Entrée du labyrinthe</title>
 </head>
