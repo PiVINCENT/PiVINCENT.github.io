@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<style>
+
+  /* LES YEUX — fixés en arrière-plan */
+  #grille {
+    position: fixed;       /* ← reste en place même si on scrolle */
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    background: #000;
+    z-index: 0;            /* ← tout en bas */
+  }
+
+ .oeil-wrap {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .oeil {
+    width: 58px;
+    height: 38px;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid #333;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pupille {
+    width: 18px;
+    height: 18px;
+    background: #111;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  /* TON CONTENU — par-dessus les yeux */
+  #contenu {
+    position: relative;
+    z-index: 10;           /* ← au-dessus des yeux */
+    padding: 40px;
+    pointer-events: none;   /* ← ajoute cette ligne */
+  }
+
+  .box {
+    background: rgba(0, 0, 0, 0.75);   /* ← fond semi-transparent */
+    border: 2px solid #ff0000;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-family: "Comic Sans MS", cursive;
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- FOND : les yeux -->
+  <div id="grille"></div>
+
+  <!-- CONTENU : par-dessus -->
+  <div id="contenu">
+    <div class="box">
+      <p>II plantera la banniere de Castille sur les murs de Madrid au cri de Ville gagnée, et le petit Roi s'en ira tout penaud.</p>
+    </div>
+  </div>
+
+  <script>
+    const grille = document.getElementById('grille');
+    const cols = Math.floor(window.innerWidth / 80);
+    const rows = Math.floor(window.innerHeight / 80);
+
+    for (let i = 0; i < cols * rows; i++) {
+      const wrap = document.createElement('div');
+      wrap.className = 'oeil-wrap';
+      wrap.innerHTML = '<div class="oeil"><div class="pupille"></div></div>';
+      grille.appendChild(wrap);
+    }
+    
+    document.addEventListener('mousemove', (e) => {
+      document.querySelectorAll('.oeil-wrap').forEach(wrap => {
+        const rect = wrap.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const angle = Math.atan2(e.clientY - cy, e.clientX - cx);
+        const px = Math.cos(angle) * 9;
+        const py = Math.sin(angle) * 9;
+        wrap.querySelector('.pupille').style.transform =
+          `translate(${px}px, ${py}px)`;
+      });
+    });
+    
+
+    var clignotant = false;
+var intervalCligno = null;
+
+document.addEventListener('mousemove', (e) => {
+  var elem = document.elementFromPoint(e.clientX, e.clientY);
+  
+  // On remonte les parents pour voir si on est dans un .oeil
+  var dansOeil = false;
+  var current = elem;
+  while (current) {
+    if (current.classList && current.classList.contains('oeil')) {
+      dansOeil = true;
+      break;
+    }
+    current = current.parentElement;
+  }
+
+  if (dansOeil) {
+    if (!clignotant) {
+      clignotant = true;
+      var rouge = false;
+      intervalCligno = setInterval(() => {
+        grille.style.backgroundColor = rouge ? '#000' : '#ff0000';
+        rouge = !rouge;
+      }, 100);
+    }
+  } else {
+    if (clignotant) {
+      clignotant = false;
+      clearInterval(intervalCligno);
+      grille.style.backgroundColor = '#000';
+    }
+  }
+});
+  </script>
+
+</body>
+</html>
