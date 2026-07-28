@@ -497,7 +497,7 @@ body {
     </div>
     <div class="boutons-fenetre">
       <span title="Réduire">_</span>
-      <span title="Agrandir">□</span>
+      <span title="Agrandir" onclick="basculerPleinEcran()" style="cursor:pointer;">□</span>
       <a href="https://google.com"><span title="Fermer">✕</span></a>
     </div>
   </div>
@@ -712,6 +712,13 @@ function lancerRecherche() {
     window.location.href = '666.html';  /* ← remplace par le nom de ta page */
   } else {
     alert('Error : Impossible to search. Sorry Ive done this website with Claude. This buton is just for aesthetic. \n\nFile RECHERCHE.DLL doesnot exist.\n\nPlease Install Internet Explorer 6');
+  }
+}
+function basculerPleinEcran() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
   }
 }
 </script>
