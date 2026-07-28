@@ -496,7 +496,7 @@ body {
       Pierre VINCENT, last update : 27/07/2026
     </div>
     <div class="boutons-fenetre">
-      <span title="Réduire">_</span>
+      <span title="Réduire" onclick="reduire()" style="cursor:pointer;">_</span>
       <span title="Agrandir" onclick="basculerPleinEcran()" style="cursor:pointer;">□</span>
       <a href="https://google.com"><span title="Fermer">✕</span></a>
     </div>
@@ -720,5 +720,9 @@ function basculerPleinEcran() {
   } else {
     document.exitFullscreen();
   }
+}
+
+function reduire() {
+  window.resizeTo(400, 300);  // réduit la taille de la fenêtre
 }
 </script>
