@@ -616,8 +616,8 @@ body {
             <span class="stat-label">Working Papers</span>
           </div>
           <div class="stat-box">
-            <span class="stat-nb">3</span>
-            <span class="stat-label">Lectures Given</span>
+            <span class="stat-nb">126</span>
+            <span class="stat-label">Hours of Lecture Given</span>
           </div>
           <div class="stat-box">
             <span class="stat-nb">7</span>
@@ -625,13 +625,13 @@ body {
           </div>
           <div class="stat-box">
             <span class="stat-nb">12</span>
-            <span class="stat-label">Rubriques</span>
+            <span class="stat-label">Pages</span>
           </div>
         </div>
 
         <!-- RUBRIQUES -->
         <div id="rubriques-titre">
-          📚 Meilleurs articles
+          📚 Best articles
         </div>
 
         <div id="grille-rubriques">
@@ -656,18 +656,18 @@ body {
 
           <a href="cv.html" class="carte-rubrique">
             <span class="rubrique-icone">​📝​</span>
-            <div class="rubrique-titre">My curriculum vitae</div>
-            <div class="rubrique-desc">My up-to-date CV</div>
+            <div class="rubrique-titre">Curriculum vitae</div>
+            <div class="rubrique-desc">My up-to-date detailled CV</div>
           </a>
 
-          <a href="gallery.html" class="carte-rubrique">
+          <a href="related_gallery.html" class="carte-rubrique">
             <span class="rubrique-icone">📷​</span>
             <div class="rubrique-titre">Gallery</div>
             <div class="rubrique-desc">Research related pictures</div>
           </a>
           <a href="newsp.html" class="carte-rubrique">
             <span class="rubrique-icone">📰​​</span>
-            <div class="rubrique-titre">Non-scientific publication</div>
+            <div class="rubrique-titre">Non-scientific publications</div>
             <div class="rubrique-desc">News-papers, vulgarisation and blog articles</div>
           </a>
         </div>
@@ -703,8 +703,10 @@ function lancerRecherche() {
   var terme = document.querySelector('#barre-recherche input').value;
   if (terme.trim() === '') {
     alert('Veuillez saisir un terme de recherche.');
+  } else if (terme.trim() === '666') {
+    window.location.href = '666.html';  /* ← remplace par le nom de ta page */
   } else {
-    alert('Error : Impossible to search. Sorry Ive done this website with Claude. This buton is just for aesthethic. \n\nFile RECHERCHE.DLL doesnot exist.\n\nPlease Install Internet Explorer 6');
+    alert('Error : Impossible to search. Sorry Ive done this website with Claude. This buton is just for aesthetic. \n\nFile RECHERCHE.DLL doesnot exist.\n\nPlease Install Internet Explorer 6');
   }
-}   
+}
 </script>
