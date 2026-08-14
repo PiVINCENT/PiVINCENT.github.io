@@ -257,157 +257,187 @@ body {
   text-decoration: underline;
 }
 
-/* CORPS RECHERCHE */
-#corps-research {
+
+/* CORPS TEACHING */
+#corps-teaching {
   padding: 16px 20px;
 }
 
-/* SECTIONS */
-.section-titre {
+/* TOTAL HEURES */
+#total-heures {
+  background: #e8f0f8;
+  border: 2px solid #000080;
+  border-left: 6px solid #000080;
+  padding: 8px 14px;
+  margin-bottom: 16px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.total-nb {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000080;
+  line-height: 1;
+}
+
+.total-label {
+  font-size: 11px;
+  color: #555;
+}
+
+/* BLOC ANNEE */
+.bloc-annee {
+  margin-bottom: 12px;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+/* EN-TETE ANNEE — cliquable pour les anciennes années */
+.annee-header {
+  background: #000080;
+  color: white;
   font-family: Arial, sans-serif;
   font-size: 13px;
   font-weight: bold;
-  color: white;
-  background: #000080;
-  padding: 4px 10px;
-  margin-bottom: 10px;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.section-titre:first-child { margin-top: 0; }
-
-/* ARTICLE */
-.article {
-  border: 2px solid;
-  border-color: #808080 #ffffff #ffffff #808080;
-  background: #f0f0ea;
-  margin-bottom: 10px;
-  padding: 0;
-}
-
-.article-header {
-  background: #d4d0c8;
-  border-bottom: 1px solid #808080;
   padding: 6px 10px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 10px;
   cursor: pointer;
+  user-select: none;
 }
 
-.article-header:hover { background: #c0bdb5; }
-
-.article-titre {
-  font-family: "Times New Roman", serif;
-  font-size: 14px;
-  font-weight: bold;
-  color: #000080;
-  flex: 1;
-  line-height: 1.4;
+.annee-header.actuelle {
+  background: #1a6a1a;   /* vert foncé pour l'année en cours */
+  cursor: default;
 }
 
-.article-annee {
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  color: #808080;
-  white-space: nowrap;
-  flex-shrink: 0;
-  padding-top: 2px;
-}
-
-.article-meta {
-  padding: 6px 10px 0;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  color: #555;
+.annee-header .annee-infos {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
 }
 
-.article-meta span { display: flex; align-items: center; gap: 3px; }
+.annee-badge {
+  font-size: 11px;
+  font-weight: normal;
+  background: rgba(255,255,255,0.2);
+  padding: 1px 6px;
+  border-radius: 0;
+  border: 1px solid rgba(255,255,255,0.4);
+}
 
-.article-body {
-  padding: 8px 10px 10px;
+.annee-fleche {
+  font-size: 10px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* CONTENU ANNEE */
+.annee-body {
+  background: #f8f8f4;
+  padding: 10px;
   display: none;
 }
 
-.article-body.ouvert { display: block; }
+.annee-body.ouvert { display: block; }
 
-.abstract-label {
+/* TABLEAU DE COURS */
+table.cours {
+  width: 100%;
+  border-collapse: collapse;
   font-family: Arial, sans-serif;
-  font-size: 10px;
-  font-weight: bold;
-  color: #808080;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #d0d0d0;
-  padding-bottom: 2px;
+  font-size: 12px;
 }
 
-.abstract-texte {
-  font-family: "Times New Roman", serif;
-  font-size: 13px;
-  line-height: 1.6;
-  color: #333;
-  text-align: justify;
-}
-
-.article-liens {
-  margin-top: 8px;
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.btn-lien {
+table.cours thead tr {
   background: #d4d0c8;
-  border: 2px solid;
-  border-color: #ffffff #808080 #808080 #ffffff;
-  padding: 2px 10px;
-  font-family: Arial, sans-serif;
-  font-size: 10px;
-  cursor: pointer;
-  text-decoration: none;
+  border-bottom: 2px solid #808080;
+}
+
+table.cours thead td {
+  padding: 4px 8px;
+  font-weight: bold;
+  font-size: 11px;
   color: #000080;
+  border-right: 1px solid #808080;
+}
+
+table.cours tbody tr {
+  border-bottom: 1px solid #e0e0d8;
+}
+
+table.cours tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+table.cours tbody tr:nth-child(even) {
+  background: #f0f0ea;
+}
+
+table.cours tbody tr:hover {
+  background: #dce8f8;
+}
+
+table.cours tbody td {
+  padding: 5px 8px;
+  border-right: 1px solid #e0e0d8;
+  vertical-align: top;
+}
+
+table.cours tbody td:last-child {
+  border-right: none;
+}
+
+.cours-nom {
   font-weight: bold;
+  color: #000080;
 }
 
-.btn-lien:hover {
-  background: #000080;
-  color: white;
-}
-
-.btn-lien:active {
-  border-color: #808080 #ffffff #ffffff #808080;
-}
-
-/* STATUT */
-.statut-article {
+.cours-niveau {
   display: inline-block;
-  font-family: Arial, sans-serif;
   font-size: 10px;
-  font-weight: bold;
-  padding: 1px 6px;
+  padding: 1px 5px;
   border: 1px solid;
+  font-weight: bold;
 }
 
-.statut-publie   { background: #d4f0d4; border-color: #008000; color: #004000; }
-.statut-wp       { background: #f0f0d4; border-color: #808000; color: #404000; }
-.statut-progress { background: #d4e8f0; border-color: #000080; color: #000060; }
+.niveau-l1 { background: #d4f0d4; border-color: #008000; color: #004000; }
+.niveau-l2 { background: #d4ecd4; border-color: #006000; color: #003000; }
+.niveau-l3 { background: #f0f0d4; border-color: #808000; color: #404000; }
+.niveau-m1 { background: #d4e8f0; border-color: #000080; color: #000060; }
+.niveau-m2 { background: #c8d8f0; border-color: #000060; color: #000040; }
 
-/* FLECHE TOGGLE */
-.toggle-fleche {
-  font-size: 10px;
-  color: #808080;
-  flex-shrink: 0;
-  padding-top: 3px;
-  transition: none;
+.heures-cell {
+  font-weight: bold;
+  color: #000080;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.type-cell {
+  font-size: 11px;
+  color: #555;
+  white-space: nowrap;
+}
+
+/* TOTAL PAR ANNEE */
+.annee-total {
+  margin-top: 8px;
+  text-align: right;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: #555;
+  border-top: 1px solid #d0d0c8;
+  padding-top: 6px;
+}
+
+.annee-total strong {
+  color: #000080;
+  font-size: 13px;
 }
 
 /* BARRE DE STATUT */
@@ -436,6 +466,7 @@ body {
 <body>
 
 <div id="fenetre">
+
 
   <!-- BARRE DE TITRE -->
   <div id="titre-barre">
@@ -533,107 +564,122 @@ body {
       <div class="arbre-item"><span class="dossier">📁</span> Bibliographie</div>
     </div>
 
-    <!-- PANNEAU PRINCIPAL -->
+  <!-- PANNEAU PRINCIPAL -->
     <div id="panneau-principal">
 
       <div id="entete-page">
-        <h1>🔬 Research</h1>
+        <h1>📚 Teaching</h1>
         <div class="fil-ariane">
-          <a href="index.html">Home</a> &nbsp;▶&nbsp; Research
+          <a href="index.html">Home</a> &nbsp;▶&nbsp; Teaching
         </div>
       </div>
 
-      <div id="corps-research">
+      <div id="corps-teaching">
 
-        <!-- PUBLICATIONS -->
-        <div class="section-titre">📰 Publications</div>
-
-        <div class="article">
-          <div class="article-header" onclick="toggleArticle(this)">
-            <div>
-              <div class="article-titre">Does urban overheating affect neighborhood attractiveness? Evidence from the French housing market</div>
-              <div style="margin-top:4px;">
-                <span class="statut-publie">Published</span>
-              </div>
-            </div>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="article-annee">2026</span>
-              <span class="toggle-fleche">▼</span>
-            </div>
+        <!-- TOTAL -->
+        <div id="total-heures">
+          <div>
+            <div class="total-nb">126</div>
+            <div class="total-label">total hours of lecture given</div>
           </div>
-          <div class="article-meta">
-            <span>✍️ Pierre VINCENT</span>
-            <span>📖 Journal Of Housing Economics, Vol. 71, pp. 102–111</span>
-            <span>🔗 DOI: 10.1016/j.jhe.2025.102111</span>
-          </div>
-          <div class="article-body">
-            <div class="abstract-label">Abstract</div>
-            <div class="abstract-texte">
-                This article examines the relationship between urban overheating and housing prices, positioning urban overheating as an environmental dis-amenity with direct implications for the quality of life and health of urban residents. By reducing the attractiveness of affected neighborhoods, urban overheating is expected to negatively affect housing prices. A key contribution of this study is the use of the original micro-climatic Thermocity dataset, which provides high-resolution nighttime land surface temperature data derived from satellite observations over a set of four French urban areas. Housing data are sourced from an exhaustive dataset of housing transactions for the period 2013-2019, which provides detailed information on housing prices and characteristics. To address the potential endogeneity of local urban overheating, an instrumental variable approach is employed, leveraging wind speed as an instrument for land surface temperature. Results from the 2SLS estimation reveal a significant negative effect of urban overheating on housing prices: a 1 °C increase in urban overheating is associated with a 2.2% decrease in housing prices. Moreover, the analysis highlights substantial variations in the effect across urban units considered in this study. The robustness of these results is confirmed using alternative measures of urban overheating from other data sources.            </div>
-            <div class="article-liens">
-              <a href="https://pivincent.github.io/WP_UO_HOUSING_PRICES_VP_2025.pdf" class="btn-lien">📄 PDF</a>
-              <a href="https://www.sciencedirect.com/science/article/pii/S1051137725000701?via%3Dihub" class="btn-lien">🔗 Journal</a>
-              <a href="https://scholar.googleusercontent.com/scholar.bib?q=info:hDjVSSstrwkJ:scholar.google.com/&output=citation&scisdr=CoF4RVUcEJW2yrjF3k0:AIVdB-wAAAAAan7Dxk37RM5Jhq4iO9kYuJaOcXk&scisig=AIVdB-wAAAAAan7Dxp9Zbo8_nIGXYhi__RwyG2U&scisf=4&ct=citation&cd=-1&hl=fr" class="btn-lien">📋 BibTeX</a>
-            </div>
+          <div style="width:1px; background:#808080; align-self:stretch;"></div>
+          <div style="font-family:Arial,sans-serif; font-size:12px; color:#555; line-height:1.8;">
+            Since 2024 — Université Jean Monnet, Saint-Étienne
           </div>
         </div>
 
-        <!-- WORKING PAPERS -->
-        <div class="section-titre">📝 Working Papers</div>
-
-        <div class="article">
-          <div class="article-header" onclick="toggleArticle(this)">
-            <div>
-              <div class="article-titre">Urban overheating and urban configuration: A general equilibrium approach</div>
-              <div style="margin-top:4px;">
-                <span class="statut-wp">Working Paper</span>
-              </div>
-            </div>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="article-annee">2026</span>
-              <span class="toggle-fleche">▼</span>
+        <!-- 2025-2026 : ANNEE EN COURS, PAS DEROULABLE -->
+        <div class="bloc-annee">
+          <div class="annee-header actuelle">
+            <div class="annee-infos">
+              <span>📅 2025 – 2026</span>
+              <span class="annee-badge">Current year</span>
             </div>
           </div>
-          <div class="article-meta">
-            <span>✍️ Pierre VINCENT</span>
-            <span>📄 Working Paper</span>
-          </div>
-          <div class="article-body">
-            <div class="abstract-label">Abstract</div>
-            <div class="abstract-texte">
-              Urban heat is both a pressing environmental concern and an underexplored force shaping how cities grow and evolve. Yet little is known about the long-run consequences of rising temperatures within cities. This paper addresses this gap through two complementary analyses centered on Ho Chi Minh City, a Vietnamese megacity with strong exposure to urban heat. In the empirical part, I examine the reduced-form relationship between urban heat, measured by Land Surface Temperature (LST), and population growth across city wards. Using two original instrumental variables, namely the heat rejected by upwind air conditioning and historical LST, I find that a 1% increase in LST reduces population growth by 3.6%, providing direct evidence that urban heat affects ward attractiveness. Building on those results, I develop a quantitative urban model in which urban heat operates as an endogenous disamenity. Local heat is determined by the share of each ward covered by built-up and feeds back into household location choices through its effect on ward's amenities. I use the calibrated model to simulate counterfactual urban equilibrium and assess the long-run effects of urban policies. The results reveal two complementary effects: heat mitigation policies encourage densification in the city center, while heat intensification through climate change leads to the dispersion of residents across the province. Welfare analysis reveal that even substantial heat mitigation efforts are insufficient to offset the welfare losses induced by climate change.
-            </div>
-            <div class="article-liens">
-              <a href="#" class="btn-lien">📄 PDF</a>
-              <a href="https://pivincent.github.io/SLD_URBAN_ECO_WORKSHOP_VP_2026.pdf" class="btn-lien">📊 Slides</a>
-            </div>
+          <div class="annee-body ouvert">
+            <table class="cours">
+              <thead>
+                <tr>
+                  <td style="width:35%;">Course</td>
+                  <td style="width:12%;">Level</td>
+                  <td style="width:15%;">Type</td>
+                  <td style="width:13%;">Hours</td>
+                  <td>Institution</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="cours-nom">Microeconomics</span></td>
+                  <td><span class="cours-niveau niveau-l2">L2</span></td>
+                  <td class="type-cell">Tutorial (TD)</td>
+                  <td class="heures-cell">24h</td>
+                  <td>Université Jean Monnet</td>
+                </tr>
+                <tr>
+                  <td><span class="cours-nom">Urban Economics</span></td>
+                  <td><span class="cours-niveau niveau-m1">M1</span></td>
+                  <td class="type-cell">Lecture (CM)</td>
+                  <td class="heures-cell">18h</td>
+                  <td>Université Jean Monnet</td>
+                </tr>
+                <tr>
+                  <td><span class="cours-nom">Statistics & Econometrics</span></td>
+                  <td><span class="cours-niveau niveau-l3">L3</span></td>
+                  <td class="type-cell">Tutorial (TD)</td>
+                  <td class="heures-cell">20h</td>
+                  <td>Université Jean Monnet</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="annee-total">Total 2025–2026 : <strong>62h</strong></div>
           </div>
         </div>
 
-        <!-- WORK IN PROGRESS -->
-        <div class="section-titre">⚙️ Work in Progress</div>
-
-        <div class="article">
-          <div class="article-header" onclick="toggleArticle(this)">
-            <div>
-              <div class="article-titre">Heat Wave, Mortality and Family System</div>
-              <div style="margin-top:4px;">
-                <span class="statut-progress">In Progress</span>
-              </div>
+        <!-- 2024-2025 : DEROULABLE -->
+        <div class="bloc-annee">
+          <div class="annee-header" onclick="toggleAnnee(this)">
+            <div class="annee-infos">
+              <span>📅 2024 – 2025</span>
+              <span class="annee-badge">64h</span>
             </div>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="article-annee">2026–</span>
-              <span class="toggle-fleche">▼</span>
-            </div>
+            <span class="annee-fleche">▶</span>
           </div>
-          <div class="article-meta">
-            <span>✍️ Hugues CHAMPEAUX, Claudio DEIANA, Pierre VINCENT</span>
-          </div>
-          <div class="article-body">
-            <div class="abstract-label">Description</div>
-            <div class="abstract-texte">
-              Draft available upon request.
-            </div>
+          <div class="annee-body">
+            <table class="cours">
+              <thead>
+                <tr>
+                  <td style="width:35%;">Course</td>
+                  <td style="width:12%;">Level</td>
+                  <td style="width:15%;">Type</td>
+                  <td style="width:13%;">Hours</td>
+                  <td>Institution</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="cours-nom">Microeconomics</span></td>
+                  <td><span class="cours-niveau niveau-l1">L1</span></td>
+                  <td class="type-cell">Tutorial (TD)</td>
+                  <td class="heures-cell">24h</td>
+                  <td>Université Jean Monnet</td>
+                </tr>
+                <tr>
+                  <td><span class="cours-nom">Introduction to Economics</span></td>
+                  <td><span class="cours-niveau niveau-l1">L1</span></td>
+                  <td class="type-cell">Tutorial (TD)</td>
+                  <td class="heures-cell">20h</td>
+                  <td>Université Jean Monnet</td>
+                </tr>
+                <tr>
+                  <td><span class="cours-nom">Environmental Economics</span></td>
+                  <td><span class="cours-niveau niveau-m2">M2</span></td>
+                  <td class="type-cell">Lecture (CM)</td>
+                  <td class="heures-cell">20h</td>
+                  <td>Université Jean Monnet</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="annee-total">Total 2024–2025 : <strong>64h</strong></div>
           </div>
         </div>
 
@@ -645,7 +691,7 @@ body {
   <div id="barre-statut">
     <div class="statut-gauche">
       <span class="statut-panel">Ready</span>
-      <span class="statut-panel">Research — Pierre VINCENT 2026</span>
+      <span class="statut-panel">Teaching — Pierre VINCENT 2026</span>
     </div>
     <div class="statut-panel" id="horloge">--:--:--</div>
   </div>
@@ -663,15 +709,15 @@ function majHorloge() {
 majHorloge();
 setInterval(majHorloge, 1000);
 
-function toggleArticle(header) {
-  var body = header.parentElement.querySelector('.article-body');
-  var fleche = header.querySelector('.toggle-fleche');
+function toggleAnnee(header) {
+  var body = header.nextElementSibling;
+  var fleche = header.querySelector('.annee-fleche');
   if (body.classList.contains('ouvert')) {
     body.classList.remove('ouvert');
-    fleche.textContent = '▼';
+    fleche.textContent = '▶';
   } else {
     body.classList.add('ouvert');
-    fleche.textContent = '▲';
+    fleche.textContent = '▼';
   }
 }
 
