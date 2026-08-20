@@ -11,10 +11,12 @@ function chargerShell(contenu, titrePage, statutPage, pageActive) {
       }
 
       if (pageActive) {
-        document.querySelectorAll('#panneau-gauche a').forEach(function(lien) {
-          lien.style.fontWeight = 'normal';
-          if (lien.getAttribute('href') === pageActive) {
-            lien.style.fontWeight = 'bold';
+      console.log('pageActive reçu:', pageActive);  // ← ajoute ça
+      document.querySelectorAll('#panneau-gauche a').forEach(function(lien) {
+      console.log('lien trouvé:', lien.getAttribute('href'));  // ← ajoute ça
+      lien.style.fontWeight = 'normal';
+        if (lien.getAttribute('href') === pageActive) {
+          lien.style.fontWeight = 'bold';
           }
         });
       }
