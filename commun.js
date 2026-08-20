@@ -3,7 +3,6 @@ function chargerShell(contenu, titrePage, statutPage, pageActive) {
     .then(r => r.text())
     .then(html => {
       document.body.innerHTML = html;
-
       document.getElementById('panneau-principal').innerHTML = contenu;
 
       if (statutPage) {
@@ -11,15 +10,13 @@ function chargerShell(contenu, titrePage, statutPage, pageActive) {
         if (panels[1]) panels[1].textContent = statutPage;
       }
 
-       if (pageActive) {
-        var urlCourante = window.location.pathname.split('/').pop();
-          document.querySelectorAll('#panneau-gauche a').forEach(function(lien) {
-          lien.style.fontWeight = 'normal'; // remet tout à normal d'abord
-        if (lien.getAttribute('href') === pageActive) {
-          lien.style.fontWeight = 'bold';
-    }
-  });
-}
+      if (pageActive) {
+        document.querySelectorAll('#panneau-gauche a').forEach(function(lien) {
+          lien.style.fontWeight = 'normal';
+          if (lien.getAttribute('href') === pageActive) {
+            lien.style.fontWeight = 'bold';
+          }
+        });
       }
 
       function majHorloge() {
@@ -32,6 +29,7 @@ function chargerShell(contenu, titrePage, statutPage, pageActive) {
       }
       majHorloge();
       setInterval(majHorloge, 1000);
+    });
 }
 
 function toggleArticle(header) {
