@@ -684,6 +684,189 @@ LES TRUCS UTILES DANS LE CORPS DES PAGES
   padding: 1px 8px;
 }
 
+/* CORPS TEACHING */
+#corps-teaching {
+  padding: 16px 20px;
+}
+
+/* TOTAL HEURES */
+#total-heures {
+  background: #e8f0f8;
+  border: 2px solid #000080;
+  border-left: 6px solid #000080;
+  padding: 8px 14px;
+  margin-bottom: 16px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.total-nb {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000080;
+  line-height: 1;
+}
+
+.total-label {
+  font-size: 11px;
+  color: #555;
+}
+
+/* BLOC ANNEE */
+.bloc-annee {
+  margin-bottom: 12px;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+/* EN-TETE ANNEE — cliquable pour les anciennes années */
+.annee-header {
+  background: #000080;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.annee-header.actuelle {
+  background: #1a6a1a;   /* vert foncé pour l'année en cours */
+  cursor: default;
+}
+
+.annee-header .annee-infos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.annee-badge {
+  font-size: 11px;
+  font-weight: normal;
+  background: rgba(255,255,255,0.2);
+  padding: 1px 6px;
+  border-radius: 0;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.annee-fleche {
+  font-size: 10px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* CONTENU ANNEE */
+.annee-body {
+  background: #f8f8f4;
+  padding: 10px;
+  display: none;
+}
+
+.annee-body.ouvert { display: block; }
+
+/* TABLEAU DE COURS */
+table.cours {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+table.cours thead tr {
+  background: #d4d0c8;
+  border-bottom: 2px solid #808080;
+}
+
+table.cours thead td {
+  padding: 4px 8px;
+  font-weight: bold;
+  font-size: 11px;
+  color: #000080;
+  border-right: 1px solid #808080;
+}
+
+table.cours tbody tr {
+  border-bottom: 1px solid #e0e0d8;
+}
+
+table.cours tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+table.cours tbody tr:nth-child(even) {
+  background: #f0f0ea;
+}
+
+table.cours tbody tr:hover {
+  background: #dce8f8;
+}
+
+table.cours tbody td {
+  padding: 5px 8px;
+  border-right: 1px solid #e0e0d8;
+  vertical-align: top;
+}
+
+table.cours tbody td:last-child {
+  border-right: none;
+}
+
+.cours-nom {
+  font-weight: bold;
+  color: #000080;
+}
+
+.cours-niveau {
+  display: inline-block;
+  font-size: 10px;
+  padding: 1px 5px;
+  border: 1px solid;
+  font-weight: bold;
+}
+
+.niveau-l1 { background: #d4f0d4; border-color: #008000; color: #004000; }
+.niveau-l2 { background: #d4ecd4; border-color: #006000; color: #003000; }
+.niveau-l3 { background: #f0f0d4; border-color: #808000; color: #404000; }
+.niveau-m1 { background: #d4e8f0; border-color: #000080; color: #000060; }
+.niveau-m2 { background: #c8d8f0; border-color: #000060; color: #000040; }
+
+.heures-cell {
+  font-weight: bold;
+  color: #000080;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.type-cell {
+  font-size: 11px;
+  color: #555;
+  white-space: nowrap;
+}
+
+/* TOTAL PAR ANNEE */
+.annee-total {
+  margin-top: 8px;
+  text-align: right;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: #555;
+  border-top: 1px solid #d0d0c8;
+  padding-top: 6px;
+}
+
+.annee-total strong {
+  color: #000080;
+  font-size: 13px;
+}
+
+
 </style>
 </head>
 <body>
