@@ -481,6 +481,209 @@ body {
   padding: 1px 8px;
 }
 
+/* ===============================================================
+LES TRUCS UTILES DANS LE CORPS DES PAGES
+=============================================================== */
+/* EN-TETE PAGE */
+#entete-page {
+  background: linear-gradient(180deg, #1a4a8a 0%, #2060a8 60%, #c8d8f0 100%);
+  padding: 16px 20px 12px;
+  border-bottom: 3px solid #000080;
+}
+
+#entete-page h1 {
+  font-family: "Times New Roman", serif;
+  font-size: 24px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000040;
+  margin-bottom: 4px;
+}
+
+#entete-page .fil-ariane {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: #b8d4f0;
+}
+
+#entete-page .fil-ariane a {
+  color: #b8d4f0;
+  text-decoration: underline;
+}
+  
+/* CORPS RECHERCHE */
+#corps-research {
+  padding: 16px 20px;
+}
+
+/* SECTIONS */
+.section-titre {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  background: #000080;
+  padding: 4px 10px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-titre:first-child { margin-top: 0; }
+
+/* ARTICLE */
+.article {
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  background: #f0f0ea;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.article-header {
+  background: #d4d0c8;
+  border-bottom: 1px solid #808080;
+  padding: 6px 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.article-header:hover { background: #c0bdb5; }
+
+.article-titre {
+  font-family: "Times New Roman", serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000080;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.article-annee {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: #808080;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.article-meta {
+  padding: 6px 10px 0;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: #555;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.article-meta span { display: flex; align-items: center; gap: 3px; }
+
+.article-body {
+  padding: 8px 10px 10px;
+  display: none;
+}
+
+.article-body.ouvert { display: block; }
+
+.abstract-label {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: #808080;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #d0d0d0;
+  padding-bottom: 2px;
+}
+
+.abstract-texte {
+  font-family: "Times New Roman", serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+}
+
+.article-liens {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.btn-lien {
+  background: #d4d0c8;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 2px 10px;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000080;
+  font-weight: bold;
+}
+
+.btn-lien:hover {
+  background: #000080;
+  color: white;
+}
+
+.btn-lien:active {
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+/* STATUT */
+.statut-article {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 1px 6px;
+  border: 1px solid;
+}
+
+.statut-publie   { background: #d4f0d4; border-color: #008000; color: #004000; }
+.statut-wp       { background: #f0f0d4; border-color: #808000; color: #404000; }
+.statut-progress { background: #d4e8f0; border-color: #000080; color: #000060; }
+
+/* FLECHE TOGGLE */
+.toggle-fleche {
+  font-size: 10px;
+  color: #808080;
+  flex-shrink: 0;
+  padding-top: 3px;
+  transition: none;
+}
+
+/* BARRE DE STATUT */
+#barre-statut {
+  background: #d4d0c8;
+  border-top: 2px solid;
+  border-color: #808080 #d4d0c8 #d4d0c8 #808080;
+  padding: 2px 8px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: #000;
+}
+
+#barre-statut .statut-gauche { display: flex; gap: 12px; }
+
+.statut-panel {
+  border: 1px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding: 1px 8px;
+}
+
 </style>
 </head>
 <body>
@@ -627,7 +830,17 @@ function basculerPleinEcran() {
     document.exitFullscreen();
   }
 }
-
+function toggleArticle(header) {
+  var body = header.parentElement.querySelector('.article-body');
+  var fleche = header.querySelector('.toggle-fleche');
+  if (body.classList.contains('ouvert')) {
+    body.classList.remove('ouvert');
+    fleche.textContent = '▼';
+  } else {
+    body.classList.add('ouvert');
+    fleche.textContent = '▲';
+  }
+}
 function reduire() {
   window.resizeTo(400, 300);  // réduit la taille de la fenêtre
 }
