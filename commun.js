@@ -12,12 +12,14 @@ function chargerShell(contenu, titrePage, statutPage, pageActive) {
       }
 
        if (pageActive) {
-        var liens = document.querySelectorAll('#panneau-gauche a');
-        liens.forEach(function(lien) {
-          if (lien.getAttribute('href') === pageActive) {
-            lien.style.fontWeight = 'bold';
-          }
-        });
+        var urlCourante = window.location.pathname.split('/').pop();
+          document.querySelectorAll('#panneau-gauche a').forEach(function(lien) {
+          lien.style.fontWeight = 'normal'; // remet tout à normal d'abord
+        if (lien.getAttribute('href') === pageActive) {
+          lien.style.fontWeight = 'bold';
+    }
+  });
+}
       }
 
       function majHorloge() {
@@ -30,7 +32,6 @@ function chargerShell(contenu, titrePage, statutPage, pageActive) {
       }
       majHorloge();
       setInterval(majHorloge, 1000);
-    });
 }
 
 function toggleArticle(header) {
