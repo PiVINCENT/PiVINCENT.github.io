@@ -3,538 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>🌍​ Pierre VINCENT</title>
-<style>
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  background-color: #000080;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0,0,128,0.3) 2px,
-      rgba(0,0,128,0.3) 4px
-    );
-  font-family: "Times New Roman", Times, serif;
-  color: #000000;
-  min-height: 100vh;
-  padding: 10px;
-}
-
-#fenetre {
-  width: 80%;
-  margin: 0 auto;
-  background: #d4d0c8;
-  border: 2px solid;
-  border-color: #ffffff #808080 #808080 #ffffff;
-  box-shadow: 2px 2px 0 #000;
-}
-
-/* BARRE DE TITRE */
-/* BARRE DE TITRE */
-#titre-barre {
-  background: linear-gradient(90deg, #000080, #1084d0);
-  padding: 4px 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  user-select: none;
-}
-
-#titre-barre .titre-texte {
-  color: white;
-  font-family: "Arial", sans-serif;
-  font-size: 13px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-#titre-barre .titre-texte .icone-app {
-  font-size: 16px;
-}
-
-#titre-barre .boutons-fenetre {
-  display: flex;
-  gap: 3px;
-}
-
-#titre-barre .boutons-fenetre span {
-  display: inline-block;
-  width: 16px;
-  height: 14px;
-  background: #d4d0c8;
-  border: 2px solid;
-  border-color: #ffffff #808080 #808080 #ffffff;
-  font-family: Arial, sans-serif;
-  font-size: 9px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 11px;
-  cursor: pointer;
-  color: #000;
-}
-#titre-barre .boutons-fenetre a {
-  text-decoration: none;
-  color: inherit;
-  display: inline-flex;  /* ← ajoute cette ligne */
-}
-
-/* BARRE DE MENU */
-#menu-barre {
-  background: #d4d0c8;
-  border-bottom: 1px solid #808080;
-  padding: 2px 8px;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  display: flex;
-  gap: 2px;
-}
-
-#menu-barre span {
-  padding: 2px 8px;
-  cursor: pointer;
-}
-
-#menu-barre span:hover { background: #000080; color: white; }
-#menu-barre span u { text-decoration: underline; }
-
-/* BARRE D'OUTILS */
-#barre-outils {
-  background: #d4d0c8;
-  border-bottom: 2px solid;
-  border-color: #808080 #ffffff #ffffff #808080;
-  padding: 4px 8px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-}
-
-.btn-outil {
-  background: #d4d0c8;
-  border: 2px solid;
-  border-color: #ffffff #808080 #808080 #ffffff;
-  padding: 2px 8px;
-  cursor: pointer;
-  font-size: 11px;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1px;
-  min-width: 44px;
-  text-decoration: none;
-  color: #000;
-}
-
-.btn-outil:active { border-color: #808080 #ffffff #ffffff #808080; }
-.btn-outil .icone { font-size: 16px; }
-.btn-outil .label { font-size: 9px; }
-
-.separateur-outil {
-  width: 1px;
-  height: 30px;
-  background: #808080;
-  border-right: 1px solid #fff;
-  margin: 0 4px;
-}
-
-  /* BARRE RECHERCHE */
-#barre-recherche {
-  background: #d4d0c8;
-  border-bottom: 1px solid #808080;
-  padding: 4px 8px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-}
-
-#barre-recherche label { font-weight: bold; font-size: 11px; }
-
-#barre-recherche input {
-  flex: 1;
-  background: white;
-  border: 2px solid;
-  border-color: #808080 #ffffff #ffffff #808080;
-  padding: 2px 6px;
-  font-family: "Times New Roman", serif;
-  font-size: 13px;
-  outline: none;
-}
-
-#barre-recherche .btn-chercher {
-  background: #d4d0c8;
-  border: 2px solid;
-  border-color: #ffffff #808080 #808080 #ffffff;
-  padding: 2px 12px;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  cursor: pointer;
-}
-/* CORPS PRINCIPAL */
-#corps {
-  display: flex;
-  height: calc(100vh - 130px);
-}
-
-/* PANNEAU GAUCHE */
-#panneau-gauche {
-  width: 200px;
-  background: #d4d0c8;
-  border-right: 2px solid;
-  border-color: #808080 #ffffff #808080 #808080;
-  padding: 8px 6px;
-  flex-shrink: 0;
-  overflow-y: auto;
-}
-
-#panneau-gauche h3 {
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  font-weight: bold;
-  background: #000080;
-  color: white;
-  padding: 3px 6px;
-  margin-bottom: 6px;
-}
-
-.arbre-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  padding: 2px 4px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.arbre-item:hover { background: #000080; color: white; }
-.arbre-item .dossier { font-size: 14px; }
-
-.arbre-sous { padding-left: 18px; }
-.arbre-sous .arbre-item { font-size: 11px; color: #000080; }
-.arbre-sous .arbre-item:hover { color: white; }
-
-/* PANNEAU PRINCIPAL */
-#panneau-principal {
-  flex: 1;
-  background: white;
-  overflow-y: auto;
-  padding: 0;
-}
-
-/* EN-TETE PAGE */
-#entete-page {
-  background: linear-gradient(180deg, #1a4a8a 0%, #2060a8 60%, #c8d8f0 100%);
-  padding: 16px 20px 12px;
-  border-bottom: 3px solid #000080;
-}
-
-#entete-page h1 {
-  font-family: "Times New Roman", serif;
-  font-size: 24px;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px #000040;
-  margin-bottom: 4px;
-}
-
-#entete-page .fil-ariane {
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  color: #b8d4f0;
-}
-
-#entete-page .fil-ariane a {
-  color: #b8d4f0;
-  text-decoration: underline;
-}
-
-/* CORPS RECHERCHE */
-#corps-research {
-  padding: 16px 20px;
-}
-
-/* SECTIONS */
-.section-titre {
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  font-weight: bold;
-  color: white;
-  background: #000080;
-  padding: 4px 10px;
-  margin-bottom: 10px;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.section-titre:first-child { margin-top: 0; }
-
-/* ARTICLE */
-.article {
-  border: 2px solid;
-  border-color: #808080 #ffffff #ffffff #808080;
-  background: #f0f0ea;
-  margin-bottom: 10px;
-  padding: 0;
-}
-
-.article-header {
-  background: #d4d0c8;
-  border-bottom: 1px solid #808080;
-  padding: 6px 10px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.article-header:hover { background: #c0bdb5; }
-
-.article-titre {
-  font-family: "Times New Roman", serif;
-  font-size: 14px;
-  font-weight: bold;
-  color: #000080;
-  flex: 1;
-  line-height: 1.4;
-}
-
-.article-annee {
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  color: #808080;
-  white-space: nowrap;
-  flex-shrink: 0;
-  padding-top: 2px;
-}
-
-.article-meta {
-  padding: 6px 10px 0;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  color: #555;
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.article-meta span { display: flex; align-items: center; gap: 3px; }
-
-.article-body {
-  padding: 8px 10px 10px;
-  display: none;
-}
-
-.article-body.ouvert { display: block; }
-
-.abstract-label {
-  font-family: Arial, sans-serif;
-  font-size: 10px;
-  font-weight: bold;
-  color: #808080;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #d0d0d0;
-  padding-bottom: 2px;
-}
-
-.abstract-texte {
-  font-family: "Times New Roman", serif;
-  font-size: 13px;
-  line-height: 1.6;
-  color: #333;
-  text-align: justify;
-}
-
-.article-liens {
-  margin-top: 8px;
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.btn-lien {
-  background: #d4d0c8;
-  border: 2px solid;
-  border-color: #ffffff #808080 #808080 #ffffff;
-  padding: 2px 10px;
-  font-family: Arial, sans-serif;
-  font-size: 10px;
-  cursor: pointer;
-  text-decoration: none;
-  color: #000080;
-  font-weight: bold;
-}
-
-.btn-lien:hover {
-  background: #000080;
-  color: white;
-}
-
-.btn-lien:active {
-  border-color: #808080 #ffffff #ffffff #808080;
-}
-
-/* STATUT */
-.statut-article {
-  display: inline-block;
-  font-family: Arial, sans-serif;
-  font-size: 10px;
-  font-weight: bold;
-  padding: 1px 6px;
-  border: 1px solid;
-}
-
-.statut-publie   { background: #d4f0d4; border-color: #008000; color: #004000; }
-.statut-wp       { background: #f0f0d4; border-color: #808000; color: #404000; }
-.statut-progress { background: #d4e8f0; border-color: #000080; color: #000060; }
-
-/* FLECHE TOGGLE */
-.toggle-fleche {
-  font-size: 10px;
-  color: #808080;
-  flex-shrink: 0;
-  padding-top: 3px;
-  transition: none;
-}
-
-/* BARRE DE STATUT */
-#barre-statut {
-  background: #d4d0c8;
-  border-top: 2px solid;
-  border-color: #808080 #d4d0c8 #d4d0c8 #808080;
-  padding: 2px 8px;
-  display: flex;
-  justify-content: space-between;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  color: #000;
-}
-
-#barre-statut .statut-gauche { display: flex; gap: 12px; }
-
-.statut-panel {
-  border: 1px solid;
-  border-color: #808080 #ffffff #ffffff #808080;
-  padding: 1px 8px;
-}
-
-</style>
 </head>
+
 <body>
+  <script src="commun.js"></script>
+  <template id="contenu-page">
 
-<div id="fenetre">
-
-  <!-- BARRE DE TITRE -->
-  <div id="titre-barre">
-    <div class="titre-texte">
-      <span class="icone-app">🔬</span>
-      Pierre VINCENT, last update : 14/08/2026
-    </div>
-    <div class="boutons-fenetre">
-      <span title="Réduire" onclick="reduire()" style="cursor:pointer;">_</span>
-      <span title="Agrandir" onclick="basculerPleinEcran()" style="cursor:pointer;">□</span>
-      <a href="https://google.com"><span title="Fermer">✕</span></a>
-    </div>
-  </div>
-
-  <!-- BARRE DE MENU -->
-  <div id="menu-barre">
-    <span><u>F</u>iles</span>
-    <span><u>E</u>dit</span>
-    <span><u>T</u>ools</span>
-    <span><u>S</u>earch</span>
-    <span><u>W</u>indow</span>
-    <span><u>H</u>elp</span>
-  </div>
-
-  <!-- BARRE D'OUTILS -->
-   <div id="barre-outils">
-    <div class="btn-outil">
-      <span class="icone">◀</span>
-      <span class="label">Préc.</span>
-    </div>
-    <div class="btn-outil">
-      <span class="icone">▶</span>
-      <span class="label">Suiv.</span>
-    </div>
-    <div class="separateur-outil"></div>
-    <div class="btn-outil">
-      <span class="icone">🏠</span>
-      <span class="label">Home</span>
-    </div>
-    <div class="btn-outil">
-      <span class="icone">📑</span>
-      <span class="label">Index</span>
-    </div>
-    <div class="btn-outil">
-      <span class="icone">🖨️</span>
-      <span class="label">Print</span>
-    </div>
-    <div class="separateur-outil"></div>
-    <div class="btn-outil">
-      <span class="icone">📝​</span>
-      <span class="label">Copy</span>
-    </div>
-    <div class="btn-outil">
-      <span class="icone">📋</span>
-      <span class="label">Paste</span>
-    </div>
-    <div class="separateur-outil"></div>
-    <div class="btn-outil">
-      <span class="icone">❓</span>
-      <span class="label">Help</span>
-    </div>
-  </div>
-
-  <!-- BARRE DE RECHERCHE -->
-  <div id="barre-recherche">
-    <label>🔍 Search in this website:</label>
-    <input type="text" placeholder="Ex : working paper, publication, orcid...">
-    <div class="btn-chercher" onclick="lancerRecherche()">Search</div>
-  </div>
-  
-  <!-- CORPS -->
-  <div id="corps">
-
-    <!-- PANNEAU GAUCHE -->
-    <div id="panneau-gauche">
-      <h3>📂 SECTIONS</h3>
-
-      <div class="arbre-item"><span class="dossier">📁</span> General</div>
-      <div class="arbre-sous">
-        <div class="arbre-item"><span>📄</span> <a href="index.html" style="color:inherit;text-decoration:none;">Home</a></div>
-        <div class="arbre-item"><span>📄</span> <a href="research.html" style="color:inherit;text-decoration:none;font-weight:bold;">Research</a></div>
-        <div class="arbre-item"><span>📄</span> <a href="talks.html" style="color:inherit;text-decoration:none;">Talks</a></div>
-        <div class="arbre-item"><span>📄</span> <a href="teaching.html" style="color:inherit;text-decoration:none;">Teaching</a></div>
-        <div class="arbre-item"><span>📄</span> <a href="CV_VP_2026.pdf" style="color:inherit;text-decoration:none;">CV</a></div>
-        <div class="arbre-item"><span>📄</span> <a href="related_gallery.html" style="color:inherit;text-decoration:none;">Gallery</a></div>
-      </div>
-
-      <div class="arbre-item"><span class="dossier">📁</span> Non-scientific</div>
-      <div class="arbre-sous">
-        <div class="arbre-item"><span>📄</span> <a href="gallery.html" style="color:inherit;text-decoration:none;">Gallery</a></div>
-      </div>
-
-      <div class="arbre-item"><span class="dossier">📁</span> Galerie multimédia</div>
-      <div class="arbre-item"><span class="dossier">📁</span> Glossaire</div>
-      <div class="arbre-item"><span class="dossier">📁</span> Bibliographie</div>
-    </div>
-
-    <!-- PANNEAU PRINCIPAL -->
-    <div id="panneau-principal">
+    <!-- PAS de div#panneau-principal ici, juste le contenu -->
 
       <div id="entete-page">
         <h1>🔬 Research</h1>
@@ -542,8 +17,8 @@ body {
           <a href="index.html">Home</a> &nbsp;▶&nbsp; Research
         </div>
       </div>
-
-      <div id="corps-research">
+    
+     <div id="corps-research">
 
         <!-- PUBLICATIONS -->
         <div class="section-titre">📰 Publications</div>
@@ -637,22 +112,15 @@ body {
           </div>
         </div>
 
-      </div>
-    </div>
-  </div>
+  </template>
 
-  <!-- BARRE DE STATUT -->
-  <div id="barre-statut">
-    <div class="statut-gauche">
-      <span class="statut-panel">Ready</span>
-      <span class="statut-panel">Research — Pierre VINCENT 2026</span>
-    </div>
-    <div class="statut-panel" id="horloge">--:--:--</div>
-  </div>
-
-</div>
-
-<script>
+  <script>
+    // C'est cette ligne qui déclenche l'injection du contenu dans le shell
+    chargerShell(
+      document.getElementById('contenu-page').innerHTML,
+      '🔬 Research — Pierre VINCENT',
+      'Research — Pierre VINCENT 2026'
+    );
 function majHorloge() {
   var d = new Date();
   var h = String(d.getHours()).padStart(2,'0');
@@ -663,6 +131,23 @@ function majHorloge() {
 majHorloge();
 setInterval(majHorloge, 1000);
 
+function lancerRecherche() {
+  var terme = document.querySelector('#barre-recherche input').value;
+  if (terme.trim() === '') {
+    alert('Veuillez saisir un terme de recherche.');
+  } else if (terme.trim() === '666') {
+    window.location.href = '666.html';  /* ← remplace par le nom de ta page */
+  } else {
+    alert('Error : Impossible to search. Sorry Ive done this website with Claude. This buton is just for aesthetic. \n\nFile RECHERCHE.DLL doesnot exist.\n\nPlease Install Internet Explorer 6');
+  }
+}
+function basculerPleinEcran() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
 function toggleArticle(header) {
   var body = header.parentElement.querySelector('.article-body');
   var fleche = header.querySelector('.toggle-fleche');
@@ -674,19 +159,9 @@ function toggleArticle(header) {
     fleche.textContent = '▲';
   }
 }
-
-function basculerPleinEcran() {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen();
-  } else {
-    document.exitFullscreen();
-  }
-}
-
 function reduire() {
-  alert('Error : Cannot minimize window.\n\nFile MINIMIZE.DLL not found.\n\nPlease install Internet Explorer 6.');
+  window.resizeTo(400, 300);  // réduit la taille de la fenêtre
 }
-</script>
-
+  </script>
+  
 </body>
-</html>
