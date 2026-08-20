@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>🌍​ Pierre VINCENT</title>
+</head>
+
+<body>
+  <script src="commun.js"></script>
+  <template id="contenu-page">
+
+    <!-- PAS de div#panneau-principal ici, juste le contenu -->
+
+
+      <div id="entete-page">
+        <h1>♟️​ 27ème Open International de Meximieux </h1>
+        <div class="fil-ariane">
+          <a href="index.html">Home</a> &nbsp;▶&nbsp; Teaching
+        </div>
+      </div>
+
+
+    
+  </template>
+
+  <script>
+    // C'est cette ligne qui déclenche l'injection du contenu dans le shell
+    chargerShell(
+      document.getElementById('contenu-page').innerHTML,
+      '🔬 Research — Pierre VINCENT',
+      'Research — Pierre VINCENT 2026',
+      'talks.html'
+    );
+  </script>
+
+  
+</body>
+</html>
