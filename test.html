@@ -188,6 +188,13 @@
 
     <!-- PAS de div#panneau-principal ici, juste le contenu -->
 
+      <div id="entete-page">
+        <h1>🔬 Research</h1>
+        <div class="fil-ariane">
+          <a href="index.html">Home</a> &nbsp;▶&nbsp; Research
+        </div>
+      </div>
+    
      <div id="corps-research">
 
         <!-- PUBLICATIONS -->
@@ -291,5 +298,17 @@
       '🔬 Research — Pierre VINCENT',
       'Research — Pierre VINCENT 2026'
     );
+function toggleArticle(header) {
+  var body = header.parentElement.querySelector('.article-body');
+  var fleche = header.querySelector('.toggle-fleche');
+  if (body.classList.contains('ouvert')) {
+    body.classList.remove('ouvert');
+    fleche.textContent = '▼';
+  } else {
+    body.classList.add('ouvert');
+    fleche.textContent = '▲';
+  }
+}
   </script>
+  
 </body>
