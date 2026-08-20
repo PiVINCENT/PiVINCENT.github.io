@@ -1,9 +1,10 @@
 <body>
   <script src="commun.js"></script>
   <template id="contenu-page">
-   <div id="panneau-principal">
 
-      <div id="corps-research">
+    <!-- PAS de div#panneau-principal ici, juste le contenu -->
+
+     <div id="corps-research">
 
         <!-- PUBLICATIONS -->
         <div class="section-titre">📰 Publications</div>
@@ -96,5 +97,15 @@
             </div>
           </div>
         </div>
+
   </template>
+
+  <script>
+    // C'est cette ligne qui déclenche l'injection du contenu dans le shell
+    chargerShell(
+      document.getElementById('contenu-page').innerHTML,
+      '🔬 Research — Pierre VINCENT',
+      'Research — Pierre VINCENT 2026'
+    );
+  </script>
 </body>
