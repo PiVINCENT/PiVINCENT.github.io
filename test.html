@@ -1,6 +1,107 @@
 <body>
   <script src="commun.js"></script>
   <template id="contenu-page">
-ceci est le test pour commun.js
+ <div id="panneau-principal">
+
+      <div id="entete-page">
+        <h1>🔬 Research</h1>
+        <div class="fil-ariane">
+          <a href="index.html">Home</a> &nbsp;▶&nbsp; Research
+        </div>
+      </div>
+
+      <div id="corps-research">
+
+        <!-- PUBLICATIONS -->
+        <div class="section-titre">📰 Publications</div>
+
+        <div class="article">
+          <div class="article-header" onclick="toggleArticle(this)">
+            <div>
+              <div class="article-titre">Does urban overheating affect neighborhood attractiveness? Evidence from the French housing market</div>
+              <div style="margin-top:4px;">
+                <span class="statut-publie">Published</span>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="article-annee">2026</span>
+              <span class="toggle-fleche">▼</span>
+            </div>
+          </div>
+          <div class="article-meta">
+            <span>✍️ Pierre VINCENT</span>
+            <span>📖 Journal Of Housing Economics, Vol. 71, pp. 102–111</span>
+            <span>🔗 DOI: 10.1016/j.jhe.2025.102111</span>
+          </div>
+          <div class="article-body">
+            <div class="abstract-label">Abstract</div>
+            <div class="abstract-texte">
+                This article examines the relationship between urban overheating and housing prices, positioning urban overheating as an environmental dis-amenity with direct implications for the quality of life and health of urban residents. By reducing the attractiveness of affected neighborhoods, urban overheating is expected to negatively affect housing prices. A key contribution of this study is the use of the original micro-climatic Thermocity dataset, which provides high-resolution nighttime land surface temperature data derived from satellite observations over a set of four French urban areas. Housing data are sourced from an exhaustive dataset of housing transactions for the period 2013-2019, which provides detailed information on housing prices and characteristics. To address the potential endogeneity of local urban overheating, an instrumental variable approach is employed, leveraging wind speed as an instrument for land surface temperature. Results from the 2SLS estimation reveal a significant negative effect of urban overheating on housing prices: a 1 °C increase in urban overheating is associated with a 2.2% decrease in housing prices. Moreover, the analysis highlights substantial variations in the effect across urban units considered in this study. The robustness of these results is confirmed using alternative measures of urban overheating from other data sources.            </div>
+            <div class="article-liens">
+              <a href="https://pivincent.github.io/WP_UO_HOUSING_PRICES_VP_2025.pdf" class="btn-lien">📄 PDF</a>
+              <a href="https://www.sciencedirect.com/science/article/pii/S1051137725000701?via%3Dihub" class="btn-lien">🔗 Journal</a>
+              <a href="https://scholar.googleusercontent.com/scholar.bib?q=info:hDjVSSstrwkJ:scholar.google.com/&output=citation&scisdr=CoF4RVUcEJW2yrjF3k0:AIVdB-wAAAAAan7Dxk37RM5Jhq4iO9kYuJaOcXk&scisig=AIVdB-wAAAAAan7Dxp9Zbo8_nIGXYhi__RwyG2U&scisf=4&ct=citation&cd=-1&hl=fr" class="btn-lien">📋 BibTeX</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WORKING PAPERS -->
+        <div class="section-titre">📝 Working Papers</div>
+
+        <div class="article">
+          <div class="article-header" onclick="toggleArticle(this)">
+            <div>
+              <div class="article-titre">Urban overheating and urban configuration: A general equilibrium approach</div>
+              <div style="margin-top:4px;">
+                <span class="statut-wp">Working Paper</span>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="article-annee">2026</span>
+              <span class="toggle-fleche">▼</span>
+            </div>
+          </div>
+          <div class="article-meta">
+            <span>✍️ Pierre VINCENT</span>
+            <span>📄 Working Paper</span>
+          </div>
+          <div class="article-body">
+            <div class="abstract-label">Abstract</div>
+            <div class="abstract-texte">
+              Urban heat is both a pressing environmental concern and an underexplored force shaping how cities grow and evolve. Yet little is known about the long-run consequences of rising temperatures within cities. This paper addresses this gap through two complementary analyses centered on Ho Chi Minh City, a Vietnamese megacity with strong exposure to urban heat. In the empirical part, I examine the reduced-form relationship between urban heat, measured by Land Surface Temperature (LST), and population growth across city wards. Using two original instrumental variables, namely the heat rejected by upwind air conditioning and historical LST, I find that a 1% increase in LST reduces population growth by 3.6%, providing direct evidence that urban heat affects ward attractiveness. Building on those results, I develop a quantitative urban model in which urban heat operates as an endogenous disamenity. Local heat is determined by the share of each ward covered by built-up and feeds back into household location choices through its effect on ward's amenities. I use the calibrated model to simulate counterfactual urban equilibrium and assess the long-run effects of urban policies. The results reveal two complementary effects: heat mitigation policies encourage densification in the city center, while heat intensification through climate change leads to the dispersion of residents across the province. Welfare analysis reveal that even substantial heat mitigation efforts are insufficient to offset the welfare losses induced by climate change.
+            </div>
+            <div class="article-liens">
+              <a href="https://pivincent.github.io/Urban_Heat_and_Urban_Configurations_a_General_Equilibrium_Approach.pdf" class="btn-lien">📄 PDF</a>
+              <a href="https://pivincent.github.io/SLD_URBAN_ECO_WORKSHOP_VP_2026.pdf" class="btn-lien">📊 Slides</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WORK IN PROGRESS -->
+        <div class="section-titre">⚙️ Work in Progress</div>
+
+        <div class="article">
+          <div class="article-header" onclick="toggleArticle(this)">
+            <div>
+              <div class="article-titre">Heat Wave, Mortality and Family System</div>
+              <div style="margin-top:4px;">
+                <span class="statut-progress">In Progress</span>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="article-annee">2026–</span>
+              <span class="toggle-fleche">▼</span>
+            </div>
+          </div>
+          <div class="article-meta">
+            <span>✍️ Hugues CHAMPEAUX, Claudio DEIANA, Pierre VINCENT</span>
+          </div>
+          <div class="article-body">
+            <div class="abstract-label">Description</div>
+            <div class="abstract-texte">
+              Draft available upon request.
+            </div>
+          </div>
+        </div>
   </template>
 </body>
