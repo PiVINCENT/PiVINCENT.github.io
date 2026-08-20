@@ -11,8 +11,9 @@ function chargerShell(contenu, titrePage, statutPage, pageActive) {
         if (panels[1]) panels[1].textContent = statutPage;
       }
 
-      if (pageActive) {
-        document.querySelectorAll('#panneau-gauche a').forEach(function(lien) {
+       if (pageActive) {
+        var liens = document.querySelectorAll('#panneau-gauche a');
+        liens.forEach(function(lien) {
           if (lien.getAttribute('href') === pageActive) {
             lien.style.fontWeight = 'bold';
           }
