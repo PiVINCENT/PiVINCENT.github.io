@@ -121,16 +121,6 @@
       '🔬 Research — Pierre VINCENT',
       'Research — Pierre VINCENT 2026'
     );
-function majHorloge() {
-  var d = new Date();
-  var h = String(d.getHours()).padStart(2,'0');
-  var m = String(d.getMinutes()).padStart(2,'0');
-  var s = String(d.getSeconds()).padStart(2,'0');
-  document.getElementById('horloge').textContent = h + ':' + m + ':' + s;
-}
-majHorloge();
-setInterval(majHorloge, 1000);
-
 function lancerRecherche() {
   var terme = document.querySelector('#barre-recherche input').value;
   if (terme.trim() === '') {
